@@ -1,10 +1,6 @@
 package com.spring.bj.college.thesisadvisorymatcher.application.usecase;
 
-import com.spring.bj.college.thesisadvisorymatcher.domain.model.EmailAddress;
-import com.spring.bj.college.thesisadvisorymatcher.domain.model.advisor.Advisor;
 import com.spring.bj.college.thesisadvisorymatcher.domain.model.student.Student;
-import com.spring.bj.college.thesisadvisorymatcher.domain.model.student.StudentID;
-import com.spring.bj.college.thesisadvisorymatcher.domain.repository.AdvisorRepository;
 import com.spring.bj.college.thesisadvisorymatcher.domain.repository.StudentRepository;
 
 import java.util.List;

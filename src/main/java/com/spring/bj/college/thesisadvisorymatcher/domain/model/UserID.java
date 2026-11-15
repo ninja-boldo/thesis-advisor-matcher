@@ -1,9 +1,9 @@
-package com.spring.bj.college.thesisadvisorymatcher.domain.model.student;
+package com.spring.bj.college.thesisadvisorymatcher.domain.model;
 
-public record StudentID(String rawId) {
-    public StudentID {
+public record UserID(String rawId) {
+    public UserID {
         if (rawId == null || !this.isValidId(rawId)) {
-            throw new IllegalArgumentException("Invalid student ID: " + rawId);
+            throw new IllegalArgumentException("Invalid User ID: " + rawId);
         }
     }
     private boolean isValidId(String id){
