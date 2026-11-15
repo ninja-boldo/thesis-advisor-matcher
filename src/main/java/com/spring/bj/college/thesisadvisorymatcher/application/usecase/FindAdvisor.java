@@ -1,6 +1,7 @@
 package com.spring.bj.college.thesisadvisorymatcher.application.usecase;
 
 import com.spring.bj.college.thesisadvisorymatcher.domain.model.EmailAddress;
+import com.spring.bj.college.thesisadvisorymatcher.domain.model.UserID;
 import com.spring.bj.college.thesisadvisorymatcher.domain.model.advisor.Advisor;
 import com.spring.bj.college.thesisadvisorymatcher.domain.repository.AdvisorRepository;
 
@@ -14,8 +15,8 @@ public class FindAdvisor {
         this.repository = repository;
     }
 
-    public Optional<Advisor> findByMail(EmailAddress emailAddress) {
-        return this.repository.findByMail(emailAddress);
+    public Optional<Advisor> findById(UserID id) {
+        return this.repository.findById(id);
     }
 
     public List<Advisor> findAll() {

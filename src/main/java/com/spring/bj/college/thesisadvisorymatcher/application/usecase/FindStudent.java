@@ -1,5 +1,6 @@
 package com.spring.bj.college.thesisadvisorymatcher.application.usecase;
 
+import com.spring.bj.college.thesisadvisorymatcher.domain.model.UserID;
 import com.spring.bj.college.thesisadvisorymatcher.domain.model.student.Student;
 import com.spring.bj.college.thesisadvisorymatcher.domain.repository.StudentRepository;
 
@@ -13,8 +14,8 @@ public class FindStudent {
         this.repository = repository;
     }
 
-    public Optional<Student> findByMail(StudentID studentID) {
-        return this.repository.findById(studentID);
+    public Optional<Student> findByMail(UserID id) {
+        return this.repository.findById(id);
     }
 
     public List<Student> findAll() {
