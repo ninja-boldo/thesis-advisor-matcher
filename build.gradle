@@ -72,6 +72,8 @@ spotless {
 // Style checks
 checkstyle {
     toolVersion = '14.4.0'
+    configFile = file('config/checkstyle/checkstyle.xml')
+    maxWarnings = 0
 }
 
 // Static analysis
