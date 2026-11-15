@@ -1,0 +1,84 @@
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '4.1.2'
+    id 'io.spring.dependency-management' version '1.1.7'
+
+    // Code quality
+    id 'com.diffplug.spotless' version '8.11.0'
+    id 'com.github.spotbugs' version '6.5.13'
+    id 'checkstyle'
+}
+
+group = 'com.spring.bj.college'
+version = '0.0.1-SNAPSHOT'
+description = 'thesis-advisory-matcher'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+
+    // API documentation
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:3.2.0'
+
+    // Thymeleaf + Spring Security
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Development
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-security-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-thymeleaf-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+
+    // Architecture tests
+    testImplementation 'com.tngtech.archunit:archunit-junit5:1.5.1'
+
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+// Java formatting
+spotless {
+    java {
+        googleJavaFormat()
+        removeUnusedImports()
+    }
+}
+
+// Style checks
+checkstyle {
+    toolVersion = '14.4.0'
+}
+
+// Static analysis
+spotbugs {
+    ignoreFailures = false
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
